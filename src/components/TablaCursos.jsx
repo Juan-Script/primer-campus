@@ -10,22 +10,48 @@ import { Column } from 'primereact/column';
 
 
 
-export default function TablaCursos({curso}) {
-    const [cursos, setCursos] = useState([]);
+// export default function TablaCursos({cursos}) {
 
+//     const [cursosTable, setCursos] = useState([])
+
+
+//     const getData = () => {
+//         cursos.forEach((curso) => cursosTable.push(curso.attributes))
+//         return cursosTable
+//     }
+
+//     return (
+//         <div className="card">
+//             <DataTable value={getData()} tableStyle={{ minWidth: '50rem' }}>
+//                 <Column field="titulo" header="Titulo"></Column>
+//                 <Column field="nivel" header="Nivel"></Column>
+//                 <Column field="categoria" header="Categoría"></Column>
+//                 <Column field="tecnologia" header="Tecnología"></Column>
+//                 <Column field="precio" header="Precio"></Column>
+//             </DataTable>
+//         </div>
+//     )
+// }
+
+
+export default function TablaCursos({cursos}) {
+    const [cursosTable, setCursos] = useState([])
+  
     useEffect(() => {
-        cursos.getCursos().then(data => setCursos(data));
-    }, []);
-
+      const cursosAttributes = cursos.map(curso => curso.attributes)
+      setCursos(cursosAttributes)
+    }, [cursos])
+  
     return (
-        <div className="card">
-            <DataTable value={cursos} tableStyle={{ minWidth: '50rem' }}>
-                <Column field="titulo" header="Titulo"></Column>
-                <Column field="nivel" header="Nivel"></Column>
-                <Column field="categoria" header="Categoría"></Column>
-                <Column field="tecnología" header="Tecnología"></Column>
-                <Column field="precio" header="Precio"></Column>
-            </DataTable>
-        </div>
-    );
-}
+      <div className="card">
+        <DataTable value={cursosTable} tableStyle={{ minWidth: '50rem' }}>
+          <Column field="titulo" header="Titulo"></Column>
+          <Column field="nivel" header="Nivel"></Column>
+          <Column field="categoria" header="Categoría"></Column>
+          <Column field="tecnologia" header="Tecnología"></Column>
+          <Column field="precio" header="Precio"></Column>
+        </DataTable>
+      </div>
+    )
+  }
+  

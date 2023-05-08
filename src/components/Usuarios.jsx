@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { getUsuarios } from '../shared/middlewares/getUsuarios'
 import { Box } from "@chakra-ui/react";
-import TablaUsuarios from './ablaUsuarios';
+import TablaUsuarios from './TablaUsuarios';
 
 export default function Usuarios() {
     const [usuarios, setUsuarios] = useState(null)

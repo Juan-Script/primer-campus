@@ -7,6 +7,7 @@ import Cursos from './components/Cursos'
 
 function App() {
   return (
+    
     <div className="Contenedor">
       <BrowserRouter>
         {/* header */}
@@ -22,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+
