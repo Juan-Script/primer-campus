@@ -2,12 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { getUsuarios } from '../shared/middlewares/getUsuarios'
 import { Box } from "@chakra-ui/react";
-import TablaUsuarios from './TablaUsuarios';
-
-// export default function Usuarios() {
-//   return (
-//     <div>Usuarios</div>
-//   )
+import TablaUsuarios from './ablaUsuarios';
 
 export default function Usuarios() {
     const [usuarios, setUsuarios] = useState(null)
@@ -26,7 +21,6 @@ export default function Usuarios() {
             usuarios && usuarios?.map((usuario, index) => (
              <Box margin='auto' w='50%' key={index}>
                 <TablaUsuarios usuario={usuario}/>
-              {/* <TablaUsuarios usuario={usuario}/> */}
               </Box>
        ))
           }
