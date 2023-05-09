@@ -19,6 +19,9 @@ export const Login = () => {
             <Button size="lg" colorScheme='teal'>
                 <Link to='/cursos'>Ver cursos</Link>
             </Button>
+            <Button size="lg" colorScheme='whatsapp'>
+                <Link to="/empleos">Ver empleos</Link>
+            </Button>
         </HStack>
 
     </VStack>
