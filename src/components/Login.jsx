@@ -1,40 +1,66 @@
 import { React, useState} from "react";
-import { Link, Navigate } from 'react-router-dom'
-import { Input, Button, Image, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox } from '@chakra-ui/react'
+import { Link, useNavigate  } from 'react-router-dom'
+import { Input, Button, Image, useToast, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox } from '@chakra-ui/react'
 import axios from "axios";
 ;
 
-function Login() {
+export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [apiData, setApiData] = useState({});
+    const navigate = useNavigate();
 
-const handleLogin = () => {
-    axios.get("https://reqres.in/api/users/2").then((response) => 
-            {setApiData(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+function ToastStatusExample() {
+        const toast = useToast()
+        const statuses = ['error']
 
-    if (email === apiData.email && password === apiData.password) {
-        Navigate("/inicio")
-    } else {
-        alert("Email o contraseña incorrectos")
-    }
+    // const getUsers = async () => {
+    //     axios.post("https://reqres.in/api/login").then((response) => 
+    //         {
+    //             console.log(response.data)
+    //             setApiData(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+    // }
 
 }
+    // const handleLogin = () => {
 
-function login()
-{
-    axios.get("https://reqres.in/api/users/2").then((response) => 
-        console.log(response))
-}    
-    
+    // getUsers().then(() => {
+    //     if (email === apiData.email && password === apiData.password) {
+    //         navigate("/inicio")
+    //     } else {
+    //         alert("Email o contraseña incorrectos")
+            
+    //     }
+    // })
+
+// }
+  // const {data} = await axios.post('/user', document.querySelector('#my-form'), {
+    //     body: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   })
+
+const login = () =>
+    {
+        axios.post('https://reqres.in/api/login', {
+            "email": email,
+            "password": password
+          })
+          .then(function (response) {
+            if (response.data.token) {
+                navigate("/inicio")
+            }
+          })
+          .catch(function (error) {
+            window.alert("Email o contraseña incorrectos")
+        });
+    }
 
   return (
-   
-    
 
          <HStack w="full" h="100vh">
             
@@ -50,21 +76,17 @@ function login()
                     <Heading fontSize="xl" color="#121625">
                     ¡Bienvenido/a!
                     </Heading>
-                    <FormControl id="email">
+                    <FormControl>
                         <FormLabel fontSize="sm">Email</FormLabel>
-                        <Input onChange={(e)=>setEmail(e.target.value)} autoComplete='off' placeholder="email@gmail.com" />
-                    </FormControl>
-                    <FormControl id="password">
+                            <Input onChange={(e)=>setEmail(e.target.value)} autoComplete='off' placeholder="email@gmail.com" required/>
+                            </FormControl>
+                            <FormControl>
                         <FormLabel fontSize="sm">Contraseña</FormLabel>
-                        <Input onChange={(e)=>setPassword(e.target.value)} type='password' placeholder="••••••••••"/>
-                    </FormControl>
-                    <Stack spacing={4} direction="row" align="start" justify="space-between">
-                        <Checkbox colorScheme="blue">Recuérdame</Checkbox>
-                        <Link color="#28edb2">Recuperar contraseña</Link>
-                    </Stack>
-                    <Button onSubmit={handleLogin} onClick={login} bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
-                        Iniciar sesión</Button>  {/* <Link to='/inicio'>Iniciar sesión</Link> */}
-                    <Button bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
+                            <Input onChange={(e)=>setPassword(e.target.value)} type='password' placeholder="••••••••••" required/>
+                            </FormControl>
+                            <Button type="submit" onClick={() => login()}  bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
+                            Iniciar sesión</Button>  {/* <Link to='/inicio'>Iniciar sesión</Link> */}
+                            <Button bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
                 </Stack>
             </Flex>
             <Flex w="full" h="full" borderRightWidth={1}>
@@ -74,8 +96,6 @@ function login()
 
   )
 }
-
-export default Login
 
 
 
