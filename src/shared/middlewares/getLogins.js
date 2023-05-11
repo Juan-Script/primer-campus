@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 export const getLogins = async () => {
-    let _data = await axios.get("https://reqres.in/api/users/2" ,  
+    let _data = await axios.get("https://reqres.in/api/users/2",  
         
     )
 

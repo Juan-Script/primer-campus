@@ -1,22 +1,36 @@
 import { React, useState} from "react";
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Input, Button, Image, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox } from '@chakra-ui/react'
 import axios from "axios";
+;
 
-const Login = () => {
-    
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
+function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [apiData, setApiData] = useState({});
 
-    axios.get("https://reqres.in/api/users/2").then((response) => {
-        console.log(response)
+const handleLogin = () => {
+    axios.get("https://reqres.in/api/users/2").then((response) => 
+            {setApiData(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    if (email === apiData.email && password === apiData.password) {
+        Navigate("/inicio")
+    } else {
+        alert("Email o contraseña incorrectos")
     }
-    )
+
+}
+
+function login()
+{
+    axios.get("https://reqres.in/api/users/2").then((response) => 
+        console.log(response))
+}    
     
-    
-    // const getLogins.then((response) => {
-    //     console.log(response)
-    // })    
 
   return (
    
@@ -38,18 +52,18 @@ const Login = () => {
                     </Heading>
                     <FormControl id="email">
                         <FormLabel fontSize="sm">Email</FormLabel>
-                        <Input autoComplete='off' placeholder="email@gmail.com" />
+                        <Input onChange={(e)=>setEmail(e.target.value)} autoComplete='off' placeholder="email@gmail.com" />
                     </FormControl>
                     <FormControl id="password">
                         <FormLabel fontSize="sm">Contraseña</FormLabel>
-                        <Input type='password' placeholder="••••••••••"/>
+                        <Input onChange={(e)=>setPassword(e.target.value)} type='password' placeholder="••••••••••"/>
                     </FormControl>
                     <Stack spacing={4} direction="row" align="start" justify="space-between">
                         <Checkbox colorScheme="blue">Recuérdame</Checkbox>
                         <Link color="#28edb2">Recuperar contraseña</Link>
                     </Stack>
-                    <Button bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
-                        <Link to='/inicio'>Iniciar sesión</Link></Button>
+                    <Button onSubmit={handleLogin} onClick={login} bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
+                        Iniciar sesión</Button>  {/* <Link to='/inicio'>Iniciar sesión</Link> */}
                     <Button bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
                 </Stack>
             </Flex>
