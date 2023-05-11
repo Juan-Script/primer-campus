@@ -1,6 +1,6 @@
 import { React, useState} from "react";
 import { Link, useNavigate  } from 'react-router-dom'
-import { Input, Button, Image, useToast, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox } from '@chakra-ui/react'
+import { Input, Button, Image, useToast, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox, position } from '@chakra-ui/react'
 import axios from "axios";
 ;
 
@@ -10,10 +10,18 @@ export default function Login() {
     const [apiData, setApiData] = useState({});
     const navigate = useNavigate();
 
-function ToastStatusExample() {
-        const toast = useToast()
-        const statuses = ['error']
 
+        const toast = useToast()
+        const showToast = () => {
+            toast({
+                title: 'Error de conexión',
+                description: 'Comprueba que has ingresado los datos correctamente',
+                duration: 5000,
+                isClosable: true,
+                status: 'error',
+                position: 'top',
+            })
+        }
     // const getUsers = async () => {
     //     axios.post("https://reqres.in/api/login").then((response) => 
     //         {
@@ -25,7 +33,7 @@ function ToastStatusExample() {
     //         });
     // }
 
-}
+
     // const handleLogin = () => {
 
     // getUsers().then(() => {
@@ -56,7 +64,7 @@ const login = () =>
             }
           })
           .catch(function (error) {
-            window.alert("Email o contraseña incorrectos")
+            showToast()
         });
     }
 
@@ -86,7 +94,7 @@ const login = () =>
                             </FormControl>
                             <Button type="submit" onClick={() => login()}  bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
                             Iniciar sesión</Button>  {/* <Link to='/inicio'>Iniciar sesión</Link> */}
-                            <Button bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
+                            <Button onClick={showToast} bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
                 </Stack>
             </Flex>
             <Flex w="full" h="full" borderRightWidth={1}>
@@ -95,10 +103,9 @@ const login = () =>
         </HStack>
 
   )
+
+
+
+
+
 }
-
-
-
-
-
-
