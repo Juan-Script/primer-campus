@@ -1,5 +1,5 @@
 import { React, useState} from "react";
-import { Link, useNavigate  } from 'react-router-dom'
+import { Link, useNavigate, useHistory  } from 'react-router-dom'
 import { Input, Button, Image, useToast, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox, position } from '@chakra-ui/react'
 import axios from "axios";
 ;
@@ -22,35 +22,7 @@ export default function Login() {
                 position: 'top',
             })
         }
-    // const getUsers = async () => {
-    //     axios.post("https://reqres.in/api/login").then((response) => 
-    //         {
-    //             console.log(response.data)
-    //             setApiData(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //         });
-    // }
 
-
-    // const handleLogin = () => {
-
-    // getUsers().then(() => {
-    //     if (email === apiData.email && password === apiData.password) {
-    //         navigate("/inicio")
-    //     } else {
-    //         alert("Email o contraseña incorrectos")
-            
-    //     }
-    // })
-
-// }
-  // const {data} = await axios.post('/user', document.querySelector('#my-form'), {
-    //     body: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
 
 const login = () =>
     {
@@ -60,6 +32,7 @@ const login = () =>
           })
           .then(function (response) {
             if (response.data.token) {
+                localStorage.setItem("Token", "QpwL5tke4Pnpja7X4")
                 navigate("/inicio")
             }
           })
@@ -67,6 +40,9 @@ const login = () =>
             showToast()
         });
     }
+
+
+
 
   return (
 
@@ -94,7 +70,7 @@ const login = () =>
                             </FormControl>
                             <Button type="submit" onClick={() => login()}  bg="#32d4a4" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>
                             Iniciar sesión</Button>  {/* <Link to='/inicio'>Iniciar sesión</Link> */}
-                            <Button onClick={showToast} bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
+                            <Button bg="#121625" color="white" size="sm" _hover={{ bg: 'grey'}} _active={{ bg: 'lightgrey'}}>Registrarse</Button>
                 </Stack>
             </Flex>
             <Flex w="full" h="full" borderRightWidth={1}>

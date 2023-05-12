@@ -1,7 +1,8 @@
+
 import React from 'react'
 
-export default function Empleos() {
+export default function empleos() {
   return (
-    <div>Empleos</div>
+    <div>empleos</div>
   )
 }

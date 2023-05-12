@@ -1,25 +1,44 @@
 import { Button, HStack, Flex, Text } from "@chakra-ui/react"
 import React from 'react'
+import { getToken } from "../shared/getToken";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import showToast from "./Login"
 
-export const IndexPage = () => {
+const Inicio = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        let token = getToken()
+
+        if(!token){
+            // showToast() 
+            navigate("/")
+        }
+
+    }, []);
+
+
+
     return (
-        <HStack w="full" h="100vs" bg="gray.100" padding={10}>
-            <Flex 
-                as="aside"
-                w="full"
-                h="full"
-                maxW={350}
-                bg="white"
-                alignItems="center"
-                padding={6}
-                flexDirection="column"
-                justifyContent="space-between"
-                borderRadius="3xl"
-                ></Flex>
-                <Flex as="main w="full h="full" bg="white" alignItems="center" justifyContent="center" flexDirection="column" position="relative" borderRadius="3xl"> 
-                    <Text fontSize={100}></Text>
-                </Flex>
-        </HStack>
+        <h1>Inicio</h1>
+        // <HStack w="full" h="100vs" bg="gray.100" padding={10}>
+        //     <Flex 
+        //         as="aside"
+        //         w="full"
+        //         h="full"
+        //         maxW={350}
+        //         bg="white"
+        //         alignItems="center"
+        //         padding={6}
+        //         flexDirection="column"
+        //         justifyContent="space-between"
+        //         borderRadius="3xl"
+        //         ></Flex>
+        //         <Flex as="main w="full h="full" bg="white" alignItems="center" justifyContent="center" flexDirection="column" position="relative" borderRadius="3xl"> 
+        //             <Text fontSize={100}></Text>
+        //         </Flex>
+        // </HStack>
     )
 }
 
@@ -46,3 +65,4 @@ export const IndexPage = () => {
     //     <Box>
     //  
 
+export default Inicio

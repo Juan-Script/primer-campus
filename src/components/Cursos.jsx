@@ -2,20 +2,36 @@ import React, { useState, useEffect } from 'react';
 import { getCursos } from '../shared/middlewares/getCursos';
 import TablaCursos from './TablaCursos';
 import { Box, Stack } from '@chakra-ui/react';
+import  getToken  from './Login'
+import showToast from './Login'
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 export default function Cursos() {
     const [cursos, setCursos] = useState()
+    const navigate = useNavigate();
 
-       useEffect(()=>{
-        getData()
-       },[])
+  useEffect(() => {
+      let token = getToken()
 
-       const getData = () => {
+      if(!token){
+          // showToast() 
+          navigate("/")
+      }
+
+  }, []);
+   
+  
+
+      
+
+      const getData = () => {
         getCursos().then((response) => {
           setCursos(response)
         })
-       }
+      }
     
   return (
     
@@ -32,9 +48,10 @@ export default function Cursos() {
       );
     
 
-  
 
-}
+
+        }
+
 
 
 
