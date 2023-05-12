@@ -4,6 +4,7 @@ import Usuarios from './components/Usuarios'
 import Login from './components/Login'
 import Cursos from './components/Cursos'
 import Inicio from './components/Inicio'
+import Empleos from './components/Empleos';
 
 
 

@@ -1,5 +1,5 @@
 import { React, useState} from "react";
-import { Link, useNavigate, useHistory  } from 'react-router-dom'
+import { Link, useNavigate,} from 'react-router-dom'
 import { Input, Button, Image, useToast, VStack, HStack, FormControl, FormLabel, FormErrorMessage,FormHelperText, Box, Heading, Flex, Card, Stack, CardBody, Checkbox, position } from '@chakra-ui/react'
 import axios from "axios";
 ;
@@ -29,14 +29,14 @@ const login = () =>
         axios.post('https://reqres.in/api/login', {
             "email": email,
             "password": password
-          })
-          .then(function (response) {
+        })
+        .then(function (response) {
             if (response.data.token) {
                 localStorage.setItem("Token", "QpwL5tke4Pnpja7X4")
                 navigate("/inicio")
             }
-          })
-          .catch(function (error) {
+        })
+        .catch(function (error) {
             showToast()
         });
     }
@@ -44,9 +44,9 @@ const login = () =>
 
 
 
-  return (
+return (
 
-         <HStack w="full" h="100vh">
+        <HStack w="full" h="100vh">
             
             <Flex w="full" h="full" alignItems="center" justifyContent="center">
                 <Stack w="full" maxW="md" spacing={4} p={6}>
@@ -78,7 +78,7 @@ const login = () =>
             </Flex>
         </HStack>
 
-  )
+)
 
 
 

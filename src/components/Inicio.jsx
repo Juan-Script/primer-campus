@@ -1,11 +1,11 @@
-import { Button, HStack, Flex, Text } from "@chakra-ui/react"
+import { Button, HStack, Flex, Text, Box } from "@chakra-ui/react"
 import React from 'react'
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login"
 
-const Inicio = () => {
+export default function Inicio() {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,10 +18,18 @@ const Inicio = () => {
 
     }, []);
 
-
+const LogOut = () => {
+    localStorage.removeItem("Token");
+    navigate("/")
+    
+}
 
     return (
-        <h1>Inicio</h1>
+        
+        <Box>
+        <Button onClick={LogOut}>Log Out</Button>
+        </Box>
+        
         // <HStack w="full" h="100vs" bg="gray.100" padding={10}>
         //     <Flex 
         //         as="aside"
@@ -65,4 +73,3 @@ const Inicio = () => {
     //     <Box>
     //  
 
-export default Inicio
