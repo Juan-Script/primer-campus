@@ -20,19 +20,19 @@ const items = [
     type: "link",
     label: "Cursos",
     icon: MdRocketLaunch,
-    path: "/",
+    path: "/cursos",
   },
   {
     type: "link",
     label: "Empleos",
     icon: Md3P,
-    path: "/",
+    path: "/empleos",
   },
   {
     type: "link",
     label: "Profesores",
     icon: MdPersonSearch,
-    path: "/",
+    path: "/usuarios",
   },
 ];
 
