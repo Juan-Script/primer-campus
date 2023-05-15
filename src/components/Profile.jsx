@@ -7,10 +7,16 @@ import {
   Heading,
   Text,
   IconButton,
+  Menu,
+  MenuButton,
+  Button,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineMoreHoriz } from "react-icons/md";
+import LogOut from "./LogOut";
 
 // export const Profile = ({ collapse }) => {
 //   if (!collapse) {
@@ -103,13 +109,22 @@ export const Profile = ({ collapse }) => (
         </Text>
       </Flex>
     )}
-    <IconButton
-      aria-label="Settings"
-      icon={<MdOutlineMoreHoriz />}
-      borderRadius="full"
-      color="gray.400"
-      variant="ghost"
-      fontSize={20}
-    />
+    <Menu>
+      <MenuButton as={Button} rightIcon={<MdOutlineMoreHoriz />}>
+        Actions
+      </MenuButton>
+      <MenuList>
+        <MenuItem onClick={LogOut}>Cerrar sesión</MenuItem>
+      </MenuList>
+    </Menu>
   </Flex>
 );
+
+//  <IconButton
+//       aria-label="Settings"
+//       icon={<MdOutlineMoreHoriz />}
+//       borderRadius="full"
+//       color="gray.400"
+//       variant="ghost"
+//       fontSize={20}
+//     ></IconButton>

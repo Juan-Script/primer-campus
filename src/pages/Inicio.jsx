@@ -1,4 +1,14 @@
-import { Button, HStack, Flex, Text, Box, IconButton } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Flex,
+  Text,
+  Box,
+  IconButton,
+  Heading,
+  Image,
+  Stack,
+} from "@chakra-ui/react";
 import React from "react";
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
@@ -7,6 +17,7 @@ import showToast from "./Login";
 import { Sidebar } from "../components/Sidebar";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
+import { Cardcurso } from "../components/Cardcurso";
 
 export default function Inicio() {
   const navigate = useNavigate();
@@ -65,30 +76,32 @@ export default function Inicio() {
           left={6}
           onClick={() => setCollapse(!collapse)}
         />
-        <Text fontSize={100} color="gray.300">
-          Main
-        </Text>
+        <Heading
+          size="md"
+          justifyContent="space-between"
+          position="absolute"
+          left={20}
+          top={8}
+        >
+          Inicio
+        </Heading>
+        <Heading
+          size="lg"
+          justifyContent="space-between"
+          position="absolute"
+          left={20}
+          top={120}
+        >
+          ¡Comienza a aprender con nosotros!
+        </Heading>
+
+        <Cardcurso
+          justifyContent="space-between"
+          position="absolute"
+          top={20}
+          left={150}
+        ></Cardcurso>
       </Flex>
     </HStack>
   );
 }
-
-// <VStack display= "flex" justifyContent= 'center'>
-//     <Image
-//             mx="auto"
-//             maxW={{ base: '100%', sm: '200px'}}
-//             src= 'https://vlctesting.es/wp-content/uploads/2022/08/Open-Bootcamp.png'
-//         />
-//     {/* <HStack>
-//         <Button size="lg" colorScheme='blue'>
-//             <Link to='/usuarios'>Ver usuarios</Link>
-//         </Button>
-//         <Button size="lg" colorScheme='teal'>
-//             <Link to='/cursos'>Ver cursos</Link>
-//         </Button>
-//         <Button size="lg" colorScheme='whatsapp'>
-//             <Link to="/empleos">Ver empleos</Link>
-//         </Button>
-//     </HStack> */}
-//     <Box>
-//

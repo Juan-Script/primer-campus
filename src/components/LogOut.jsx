@@ -1,7 +1,10 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const LogOut = () => {
-    localStorage.removeItem("Token");
-    navigate("/")
-    
-}
+  const navigate = useNavigate();
+
+  localStorage.removeItem("Token");
+  navigate("/");
+};
+
+export default LogOut;
