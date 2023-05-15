@@ -7,20 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { getToken } from '../shared/getToken';
 
 export default function Usuarios() {
+
     const [usuarios, setUsuarios] = useState(null)
     const navigate = useNavigate();
-  
-      useEffect(() => {
-          let token = getToken()
+
+      useEffect(()=>{
+
+        let token = getToken()
   
           if(!token){
               // showToast() 
               navigate("/")
           }
-  
-      }, []);
 
-      useEffect(()=>{
         getUsuarios().then((response) => {
           console.log(response)
           setUsuarios(response)

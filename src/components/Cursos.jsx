@@ -24,7 +24,7 @@ export default function Cursos  () {
 
   
 
-  getData()
+      
 
       const getData = () => {
         getCursos().then((response) => {

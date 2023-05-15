@@ -1,9 +1,11 @@
-import { Button, HStack, Flex, Text, Box } from "@chakra-ui/react"
+import { Button, HStack, Flex, Text, Box, IconButton } from "@chakra-ui/react"
 import React from 'react'
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login"
+import { Sidebar } from "./Sidebar";
+import { MdMenu } from "react-icons/md"
 
 export default function Inicio() {
     const navigate = useNavigate();
@@ -12,7 +14,7 @@ export default function Inicio() {
         let token = getToken()
 
         if(!token){
-            // showToast() 
+            alert(showToast())
             navigate("/")
         }
 
@@ -26,27 +28,48 @@ const LogOut = () => {
 
     return (
         
-        <Box>
-        <Button onClick={LogOut}>Log Out</Button>
-        </Box>
+        //  
         
-        // <HStack w="full" h="100vs" bg="gray.100" padding={10}>
-        //     <Flex 
-        //         as="aside"
-        //         w="full"
-        //         h="full"
-        //         maxW={350}
-        //         bg="white"
-        //         alignItems="center"
-        //         padding={6}
-        //         flexDirection="column"
-        //         justifyContent="space-between"
-        //         borderRadius="3xl"
-        //         ></Flex>
-        //         <Flex as="main w="full h="full" bg="white" alignItems="center" justifyContent="center" flexDirection="column" position="relative" borderRadius="3xl"> 
-        //             <Text fontSize={100}></Text>
-        //         </Flex>
-        // </HStack>
+        <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+            <Flex 
+                as="aside"
+                w="full"
+                h="full"
+                maxW={350}
+                bg="white"
+                alignItems="center"
+                padding={6}
+                flexDirection="column"
+                justifyContent="space-between"
+                borderRadius="3xl"
+            >
+                <Sidebar />
+
+            </Flex>
+            <Flex 
+                as="main" 
+                w="100%" 
+                h="100%" 
+                bg="white" 
+                alignItems="center" 
+                justifyContent="center" 
+                flexDirection="column" 
+                position="relative" 
+                borderRadius="3xl"
+                >
+                <IconButton 
+                arial-Label="Menu Collapse" 
+                icon={<MdMenu />}
+                position="absolute"
+                top={6}
+                left={6}
+                onClick={() => null}
+                />
+                <Text fontSize={100} color="gray.300" >
+                    Main
+                </Text>
+            </Flex>
+        </HStack>
     )
 }
 
