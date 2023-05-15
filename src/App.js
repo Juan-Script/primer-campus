@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import Usuarios from './components/Usuarios'
-import Login from './components/Login'
-import Cursos from './components/Cursos'
-import Inicio from './components/Inicio'
-import Empleos from './components/Empleos';
+import Usuarios from './pages/Usuarios'
+import Login from './pages/Login'
+import Cursos from './pages/Cursos'
+import Inicio from './pages/Inicio'
+import Empleos from './pages/Empleos';
 
 
 

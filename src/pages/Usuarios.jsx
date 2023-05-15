@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { getUsuarios } from '../shared/middlewares/getUsuarios'
 import { Box } from "@chakra-ui/react";
-import TablaUsuarios from './TablaUsuarios';
+import TablaUsuarios from '../components/TablaUsuarios'
 import { useNavigate } from "react-router-dom";
 import { getToken } from '../shared/getToken';
 
@@ -24,6 +24,7 @@ export default function Usuarios() {
           console.log(response)
           setUsuarios(response)
         })
+      
       },[])
 
 

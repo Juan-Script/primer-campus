@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCursos } from '../shared/middlewares/getCursos';
-import TablaCursos from './TablaCursos';
+import TablaCursos from '../components/TablaCursos';
 import  getToken  from './Login'
 import { useNavigate } from 'react-router-dom';
 import showToast from './Login'

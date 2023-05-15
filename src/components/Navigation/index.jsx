@@ -1,6 +1,7 @@
 import { List, ListItem } from '@chakra-ui/react'
-import { BiHomeAlt2, MdRocketLaunch, RiSuitcaseFill, BsFillPersonLinesFill } from 'react-icons/md';
-import {} from "react-icons/md"
+import { MdHomeFilled, MdRocketLaunch, Md3P, MdPersonSearch } from 'react-icons/md';
+import { NavItem } from './Navitem';
+
 
 
 export const Navitagion = () => <List></List>;
@@ -9,7 +10,7 @@ const items = [
     {
         type:"link",
         label: "Home",
-        icon: BiHomeAlt2,
+        icon: MdHomeFilled,
         path: "/"
     },
     {
@@ -21,21 +22,21 @@ const items = [
     {
         type:"link",
         label: "Empleos",
-        icon: RiSuitcaseFill,
+        icon : Md3P,
         path: "/"
     },
     {
         type:"link",
         label: "Profesores",
-        icon: BsFillPersonLinesFill,
+        icon: MdPersonSearch,
         path: "/"
     },
 ];
 
 export const Navigation = () => <List>
     {items.map((item,index) => (
-        <ListItem key{index}>
-            <NavItem item={item} isActive{index === 0} />
+        <ListItem key={index}>
+            <NavItem item={item} isActive={index === 0} />
         </ListItem> 
     ))}
 

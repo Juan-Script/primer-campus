@@ -4,7 +4,7 @@ import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login"
-import { Sidebar } from "./Sidebar";
+import { Sidebar } from "../components/Sidebar";
 import { MdMenu } from "react-icons/md"
 
 export default function Inicio() {
