@@ -1,16 +1,14 @@
-import React from 'react'
+import React from "react";
 
 export default function Checktoken() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-      let token = getToken()
+    let token = getToken();
 
-      if(!token){
-          // showToast() 
-          navigate("/")
-      }
-
+    if (!token) {
+      // showToast()
+      navigate("/");
+    }
   }, []);
-
 }
