@@ -13,7 +13,7 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import LogOut from "./LogOut";
@@ -107,24 +107,20 @@ export const Profile = ({ collapse }) => (
         <Text as="small" color="gray.500" fontSize={12} lineHeight={0}>
           carlos@gmail.com
         </Text>
+        <Menu>
+          <MenuButton
+            position="absolute"
+            ml="40"
+            as={IconButton}
+            aria-label="Options"
+            icon={<MdOutlineMoreHoriz />}
+            variant="outline"
+          />
+          <MenuList>
+            <MenuItem onClick={LogOut}>Cerrar sesión</MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
     )}
-    <Menu>
-      <MenuButton as={Button} rightIcon={<MdOutlineMoreHoriz />}>
-        Actions
-      </MenuButton>
-      <MenuList>
-        <MenuItem onClick={LogOut}>Cerrar sesión</MenuItem>
-      </MenuList>
-    </Menu>
   </Flex>
 );
-
-//  <IconButton
-//       aria-label="Settings"
-//       icon={<MdOutlineMoreHoriz />}
-//       borderRadius="full"
-//       color="gray.400"
-//       variant="ghost"
-//       fontSize={20}
-//     ></IconButton>

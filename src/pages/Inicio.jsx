@@ -100,6 +100,8 @@ export default function Inicio() {
           position="absolute"
           top={20}
           left={150}
+          w="500px"
+          h={"300px"}
         ></Cardcurso>
       </Flex>
     </HStack>
