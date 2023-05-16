@@ -21,7 +21,7 @@ const Cardcursos = () => {
   useEffect(() => {
     getCursos().then((response) => {
       setCursos(response);
-      console.log(response);
+      //   console.log(response);
     });
   }, []);
 

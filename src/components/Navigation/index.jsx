@@ -15,24 +15,28 @@ const items = [
     label: "Home",
     icon: MdHomeFilled,
     path: "/",
+    color: "#1a202c",
   },
   {
     type: "link",
     label: "Cursos",
     icon: MdRocketLaunch,
     path: "/cursos",
+    color: "#1a202c",
   },
   {
     type: "link",
     label: "Empleos",
     icon: Md3P,
     path: "/empleos",
+    color: "#1a202c",
   },
   {
     type: "link",
     label: "Profesores",
     icon: MdPersonSearch,
     path: "/usuarios",
+    color: "#1a202c",
   },
 ];
 

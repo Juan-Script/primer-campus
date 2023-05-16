@@ -13,7 +13,7 @@ export const LogoSearch = ({ collapse }) => (
     <Box display="flex" alignItems="center" gap={2}>
       <Icon as={TbBrandGitlab} fontSize={30} />
       {collapse && (
-        <Text fontWeight="bold" fontSize={22}>
+        <Text whiteSpace="nowrap" fontWeight="bold" fontSize={22}>
           My Campus
         </Text>
       )}

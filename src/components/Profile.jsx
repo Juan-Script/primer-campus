@@ -83,7 +83,7 @@ export const Profile = ({ collapse }) => {
   const navigate = useNavigate();
 
   const LogOut = () => {
-    console.log("log out");
+    // console.log("log out");
     localStorage.removeItem("Token");
     navigate("/");
   };

@@ -8,6 +8,7 @@ import {
   Heading,
   Image,
   Stack,
+  SlideFade,
 } from "@chakra-ui/react";
 import React from "react";
 import { getToken } from "../shared/getToken";
@@ -20,6 +21,7 @@ import { useState } from "react";
 import { Cardcurso } from "../components/Cardcurso";
 import { Cardcurso2 } from "../components/Cardcurso2";
 import Cardcursos from "../components/Cardcursos";
+import Cardempleos from "../components/Cardempleos";
 
 export default function Inicio() {
   const navigate = useNavigate();
@@ -55,7 +57,9 @@ export default function Inicio() {
         flexDirection="column"
         justifyContent="space-between"
         borderRadius="3xl"
-        transition="ease-in-out .2"
+        transition="ease 0.5s "
+        onMouseEnter={() => setCollapse(!collapse)}
+        onMouseLeave={() => setCollapse(!collapse)}
       >
         <Sidebar collapse={collapse} />
       </Flex>
@@ -70,19 +74,11 @@ export default function Inicio() {
         position="relative"
         borderRadius="3xl"
       >
-        <IconButton
-          arial-Label="Menu Collapse"
-          icon={<MdMenu />}
-          position="absolute"
-          top={6}
-          left={6}
-          onClick={() => setCollapse(!collapse)}
-        />
         <Heading
           size="md"
           justifyContent="space-between"
           position="absolute"
-          left={20}
+          left={30}
           top={8}
         >
           Inicio
@@ -125,6 +121,24 @@ export default function Inicio() {
           left={30}
         >
           <Cardcursos></Cardcursos>
+        </HStack>
+        <Heading
+          size="md"
+          position="absolute"
+          justifyContent="space-between"
+          left={30}
+          mt="140px"
+        >
+          Empleos destacados
+        </Heading>
+        <HStack
+          display="flex"
+          justifyContent="flex-start"
+          position="absolute"
+          top={850}
+          left={30}
+        >
+          <Cardempleos></Cardempleos>
         </HStack>
       </Flex>
     </HStack>
