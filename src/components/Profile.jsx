@@ -107,6 +107,7 @@ export const Profile = ({ collapse }) => (
         <Text as="small" color="gray.500" fontSize={12} lineHeight={0}>
           carlos@gmail.com
         </Text>
+
         <Menu>
           <MenuButton
             position="absolute"

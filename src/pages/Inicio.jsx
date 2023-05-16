@@ -18,6 +18,8 @@ import { Sidebar } from "../components/Sidebar";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
 import { Cardcurso } from "../components/Cardcurso";
+import { Cardcurso2 } from "../components/Cardcurso2";
+import Cardcursos from "../components/Cardcursos";
 
 export default function Inicio() {
   const navigate = useNavigate();
@@ -89,20 +91,42 @@ export default function Inicio() {
           size="lg"
           justifyContent="space-between"
           position="absolute"
-          left={20}
+          left={30}
           top={120}
         >
           ¡Comienza a aprender con nosotros!
         </Heading>
 
-        <Cardcurso
-          justifyContent="space-between"
+        <Box
+          display="flex"
+          justifyContent="flex-start"
           position="absolute"
-          top={20}
-          left={150}
-          w="500px"
-          h={"300px"}
-        ></Cardcurso>
+          top="0"
+          mt="200"
+          left={30}
+        >
+          <Cardcurso></Cardcurso>
+        </Box>
+        <Heading
+          size="md"
+          position="absolute"
+          justifyContent="space-between"
+          left={30}
+          top={430}
+        >
+          Cursos mejor valorados
+        </Heading>
+        <HStack
+          display="flex"
+          justifyContent="flex-start"
+          position="absolute"
+          top="300"
+          mt="200"
+          left={30}
+        >
+          <Cardcurso2></Cardcurso2>
+          <Cardcursos></Cardcursos>
+        </HStack>
       </Flex>
     </HStack>
   );
