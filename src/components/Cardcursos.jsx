@@ -26,24 +26,25 @@ const Cardcursos = () => {
   }, []);
 
   return (
-    <Card>
-      <Image
-        objectFit="cover"
-        maxW={{ base: "100%", sm: "200px" }}
-        src={cursos.precio}
-        alt="Introducción a la programación"
-      />
-
-      <Stack>
-        {Array.isArray(cursos)
-          ? cursos.map((curso) => (
-              <Box margin="auto" w="50%">
-                <Card curso={curso.attributes.categoria} />
-              </Box>
-            ))
-          : null}
-      </Stack>
-    </Card>
+    <HStack>
+      {Array.isArray(cursos)
+        ? cursos.map((curso) => {
+            return (
+              <Card>
+                <Image
+                  objectFit="cover"
+                  maxW={{ base: "100%", sm: "200px" }}
+                  src={curso.attributes.precio}
+                  alt="Introducción a la programación"
+                />
+                <Box margin="auto" w="50%">
+                  <Card curso={curso.attributes.categoria} />
+                </Box>
+              </Card>
+            );
+          })
+        : null}
+    </HStack>
   );
 };
 
