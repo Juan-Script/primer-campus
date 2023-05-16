@@ -124,7 +124,6 @@ export default function Inicio() {
           mt="200"
           left={30}
         >
-          <Cardcurso2></Cardcurso2>
           <Cardcursos></Cardcursos>
         </HStack>
       </Flex>

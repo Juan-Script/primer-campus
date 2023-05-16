@@ -30,16 +30,30 @@ const Cardcursos = () => {
       {Array.isArray(cursos)
         ? cursos.map((curso) => {
             return (
-              <Card>
+              <Card
+                direction="column"
+                overflow="hidden"
+                variant="outline"
+                borderRadius={30}
+                display="flex"
+              >
                 <Image
                   objectFit="cover"
                   maxW={{ base: "100%", sm: "200px" }}
                   src={curso.attributes.precio}
                   alt="Introducción a la programación"
                 />
-                <Box margin="auto" w="50%">
-                  <Card curso={curso.attributes.categoria} />
-                </Box>
+
+                <CardBody>
+                  <Heading size="xs" w="50%" whiteSpace="nowrap">
+                    {curso.attributes.titulo}
+                  </Heading>
+                </CardBody>
+                <CardFooter>
+                  <Text mt="-10" color="gray.600" py="2">
+                    {curso.attributes.categoria}
+                  </Text>
+                </CardFooter>
               </Card>
             );
           })
