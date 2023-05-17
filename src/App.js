@@ -6,6 +6,8 @@ import Cursos from "./pages/Cursos";
 import Inicio from "./pages/Inicio";
 import Empleos from "./pages/Empleos";
 import { ChakraProvider } from "@chakra-ui/react";
+import Cursodetalles from "./components/Cursodetalles";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
   return (
@@ -13,12 +15,14 @@ function App() {
       <BrowserRouter>
         <ChakraProvider>
           {/* header */}
+
           <Routes>
             <Route path="/" element={<Login />}></Route>
             <Route path="/usuarios" element={<Usuarios />}></Route>
             <Route path="/cursos" element={<Cursos />}></Route>
             <Route path="/inicio" element={<Inicio />}></Route>
             <Route path="/empleos" element={<Empleos />}></Route>
+            <Route path="/cursodetalles" element={<Cursodetalles />}></Route>
           </Routes>
           {/* footer */}
         </ChakraProvider>

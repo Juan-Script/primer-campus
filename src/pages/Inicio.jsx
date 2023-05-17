@@ -133,9 +133,9 @@ export default function Inicio() {
           left={30}
         >
           <Cardempleos></Cardempleos>
-          <Button onClick={toggleColorMode}>
+          {/* <Button onClick={toggleColorMode}>
             Toggle {colorMode === "light" ? "Dark" : "Light"}
-          </Button>
+          </Button> */}
         </HStack>
       </Flex>
     </HStack>

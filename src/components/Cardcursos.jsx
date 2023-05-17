@@ -19,11 +19,13 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { getCursos } from "../shared/middlewares/getCursos";
+import { useNavigate } from "react-router-dom";
 
 const Cardcursos = () => {
   const [cursos, setCursos] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedCurso, setSelectedCurso] = useState(null); // Estado para almacenar el curso seleccionado
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCursos().then((response) => {
@@ -36,6 +38,10 @@ const Cardcursos = () => {
   const handleOpenModal = (curso) => {
     setSelectedCurso(curso);
     onOpen();
+  };
+
+  const goToDetalle = (selectedCurso) => {
+    navigate("/cursodetalles", { state: selectedCurso });
   };
 
   return (
@@ -62,7 +68,11 @@ const Cardcursos = () => {
                     </ModalBody>
 
                     <ModalFooter>
-                      <Button bg="#32d4a4" color="white">
+                      <Button
+                        bg="#32d4a4"
+                        color="white"
+                        onClick={() => goToDetalle(selectedCurso)}
+                      >
                         Comenzar curso
                       </Button>
                     </ModalFooter>

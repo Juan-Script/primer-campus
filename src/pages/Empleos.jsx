@@ -1,25 +1,24 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { getToken } from '../shared/getToken';
-import { useEffect } from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { getToken } from "../shared/getToken";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Empleos = () => {
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
-    const navigate = useNavigate();
+  useEffect(() => {
+    console.log(state);
+    let token = getToken();
 
-    useEffect(() => {
-        let token = getToken()
+    if (!token) {
+      // showToast()
+      navigate("/");
+    }
+  }, []);
 
-        if(!token){
-            // showToast() 
-            navigate("/")
-        }
+  return <div>Empleos</div>;
+};
 
-    }, []);
-
-  return (
-    <div>empleos</div>
-  )
-}
-
-export default Empleos
+export default Empleos;

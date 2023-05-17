@@ -83,7 +83,7 @@ export default function Login() {
             top={-5}
             left={5}
           />
-          <Heading fontSize="xl" color="#121625">
+          <Heading fontSize="xl" color="black">
             ¡Bienvenido/a!
           </Heading>
           <FormControl>
