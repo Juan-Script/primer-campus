@@ -3,7 +3,6 @@ import React from "react";
 import { LogoSearch } from "./LogoSearch";
 import { Navigation } from "./Navigation";
 import { Profile } from "./Profile";
-
 export const Sidebar = ({ collapse }) => (
   <React.Fragment>
     <Box w="full">

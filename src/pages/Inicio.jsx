@@ -1,4 +1,11 @@
-import { HStack, Flex, Box, Heading } from "@chakra-ui/react";
+import {
+  HStack,
+  Flex,
+  Box,
+  Heading,
+  Button,
+  useColorMode,
+} from "@chakra-ui/react";
 import React from "react";
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
@@ -11,6 +18,7 @@ import Cardempleos from "../components/Cardempleos";
 
 export default function Inicio() {
   const navigate = useNavigate();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     let token = getToken();
@@ -125,6 +133,9 @@ export default function Inicio() {
           left={30}
         >
           <Cardempleos></Cardempleos>
+          <Button onClick={toggleColorMode}>
+            Toggle {colorMode === "light" ? "Dark" : "Light"}
+          </Button>
         </HStack>
       </Flex>
     </HStack>

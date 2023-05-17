@@ -33,7 +33,7 @@ const Cardempleos = () => {
               <Card
                 cursor="pointer"
                 _hover={{
-                  bg: "#F0F0F3",
+                  bg: "gray.100",
                   transition: "transform 0.3 easeout",
                 }}
                 maxH="220px"
@@ -70,9 +70,37 @@ const Cardempleos = () => {
                 <Divider />
                 <CardFooter>
                   <HStack>
-                    <Badge>{empleo.attributes.jornada}</Badge>
-                    <Badge>{empleo.attributes.modalidad}</Badge>
-                    <Badge>{empleo.attributes.lugar}</Badge>
+                    <Badge
+                      fontWeight="medium"
+                      variant="outline"
+                      colorScheme={
+                        empleo.attributes.jornada === "Completa"
+                          ? "purple"
+                          : "red"
+                      }
+                    >
+                      {empleo.attributes.jornada}
+                    </Badge>
+                    <Badge
+                      fontWeight="medium"
+                      variant="outline"
+                      colorScheme={
+                        empleo.attributes.modalidad === "Remoto"
+                          ? "green"
+                          : empleo.attributes.modalidad === "Híbrida"
+                          ? "yellow"
+                          : "orange"
+                      }
+                    >
+                      {empleo.attributes.modalidad}
+                    </Badge>
+                    <Badge
+                      fontWeight="medium"
+                      variant="outline"
+                      colorScheme="gray"
+                    >
+                      {empleo.attributes.lugar}
+                    </Badge>
                   </HStack>
                 </CardFooter>
               </Card>
