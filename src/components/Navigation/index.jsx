@@ -14,7 +14,7 @@ const items = [
     type: "link",
     label: "Home",
     icon: MdHomeFilled,
-    path: "/",
+    path: "/inicio",
     color: "#1a202c",
   },
   {
@@ -44,7 +44,11 @@ export const Navigation = ({ collapse }) => (
   <List>
     {items.map((item, index) => (
       <ListItem key={index}>
-        <NavItem item={item} isActive={index === 0} collapse={collapse} />
+        <NavItem
+          item={item}
+          isActive={item.path === window.location.pathname}
+          collapse={collapse}
+        />
       </ListItem>
     ))}
   </List>

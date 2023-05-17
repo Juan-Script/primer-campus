@@ -34,29 +34,11 @@ export default function Inicio() {
     navigate("/");
   };
 
-  const [collapse, setCollapse] = React.useState(false);
-
   return (
     //
 
     <HStack w="full" h="100vw" bg="gray.100" padding={10}>
-      <Flex
-        as="aside"
-        w="full"
-        h="full"
-        maxW={collapse ? 350 : 100}
-        bg="white"
-        alignItems="center"
-        padding={6}
-        flexDirection="column"
-        justifyContent="space-between"
-        borderRadius="3xl"
-        transition="ease 0.5s "
-        onMouseEnter={() => setCollapse(!collapse)}
-        onMouseLeave={() => setCollapse(!collapse)}
-      >
-        <Sidebar collapse={collapse} />
-      </Flex>
+      <Sidebar />
       <Flex
         as="main"
         w="100%"
