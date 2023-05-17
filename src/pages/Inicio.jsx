@@ -1,25 +1,11 @@
-import {
-  Button,
-  HStack,
-  Flex,
-  Text,
-  Box,
-  IconButton,
-  Heading,
-  Image,
-  Stack,
-  SlideFade,
-} from "@chakra-ui/react";
+import { HStack, Flex, Box, Heading } from "@chakra-ui/react";
 import React from "react";
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login";
 import { Sidebar } from "../components/Sidebar";
-import { MdMenu } from "react-icons/md";
-import { useState } from "react";
 import { Cardcurso } from "../components/Cardcurso";
-import { Cardcurso2 } from "../components/Cardcurso2";
 import Cardcursos from "../components/Cardcursos";
 import Cardempleos from "../components/Cardempleos";
 

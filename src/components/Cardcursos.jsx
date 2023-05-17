@@ -1,16 +1,12 @@
 import React from "react";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
-  Stack,
   Heading,
   Text,
-  Button,
   HStack,
-  Box,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { getCursos } from "../shared/middlewares/getCursos";
@@ -31,6 +27,11 @@ const Cardcursos = () => {
         ? cursos.map((curso) => {
             return (
               <Card
+                cursor="pointer"
+                _hover={{
+                  transform: "scale(1.05)",
+                  transition: "transform 0.2s ease-in-out",
+                }}
                 direction="column"
                 overflow="hidden"
                 variant="outline"

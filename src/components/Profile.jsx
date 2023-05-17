@@ -17,6 +17,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 // export const Profile = ({ collapse }) => {
 //   if (!collapse) {
@@ -81,13 +82,25 @@ import { useNavigate } from "react-router-dom";
 
 export const Profile = ({ collapse }) => {
   const navigate = useNavigate();
+  const toast = useToast();
 
   const LogOut = () => {
     // console.log("log out");
     localStorage.removeItem("Token");
     navigate("/");
+    showToastlogout();
   };
-
+  const toastlogout = useToast();
+  const showToastlogout = () => {
+    toast({
+      title: "Logout correcto",
+      description: "¡Nos vemos pronto!",
+      duration: 5000,
+      isClosable: true,
+      status: "success",
+      position: "top",
+    });
+  };
   return (
     <Flex
       mt="1090"

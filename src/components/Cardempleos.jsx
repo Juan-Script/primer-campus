@@ -30,13 +30,29 @@ const Cardempleos = () => {
       {Array.isArray(empleos)
         ? empleos.map((empleo) => {
             return (
-              <Card maxW="sm" variant="outline">
+              <Card
+                cursor="pointer"
+                _hover={{
+                  bg: "#F0F0F3",
+                  transition: "transform 0.3 easeout",
+                }}
+                maxH="220px"
+                minH="220px"
+                variant="outline"
+                alignItems="flex-start !important"
+              >
                 <CardBody>
-                  <Stack mt="6" spacing="3">
+                  <Stack mt="6" spacing="3" width={3}>
                     <HStack mt="-5" spacing="20">
                       <VStack>
                         <Heading size="xs">{empleo.attributes.titulo}</Heading>
-                        <Text fontSize="sm">{empleo.attributes.empresa}</Text>
+                        <Text
+                          fontSize="sm"
+                          whiteSpace="nowrap"
+                          textAlign="left !important"
+                        >
+                          {empleo.attributes.empresa}
+                        </Text>
                       </VStack>
                       <Image
                         objectFit="cover"
@@ -48,8 +64,7 @@ const Cardempleos = () => {
                         src={empleo.attributes.imagen}
                       ></Image>
                     </HStack>
-
-                    <Text>{empleo.attributes.salario}</Text>
+                    <Text whiteSpace="nowrap">{empleo.attributes.salario}</Text>
                   </Stack>
                 </CardBody>
                 <Divider />
