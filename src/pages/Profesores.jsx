@@ -55,11 +55,12 @@ export default function Profesores() {
           position="relative"
           borderRadius="3xl"
         >
-          <Tabs ml={-200} mt={-1200}>
+          <Tabs ml={0} mt={-1100}>
             <TabList>
               {profesores.map((profesor) => {
                 return (
                   <Tab
+                    ml={10}
                     mr={20}
                     mb
                     bgImage={profesor.attributes.avatar}
@@ -76,15 +77,16 @@ export default function Profesores() {
               {profesores.map((profesor) => {
                 return (
                   <TabPanel>
-                    <Box></Box>
-                    <Heading mt={10} size={"md"}>
-                      {profesor.attributes.Nombre}
-                    </Heading>
+                    <Box ml={5} mr={5}>
+                      <Heading mt={10} size={"md"}>
+                        {profesor.attributes.Nombre}
+                      </Heading>
 
-                    <Heading size={"sm"}>
-                      Contacto: {profesor.attributes.Email}
-                    </Heading>
-                    <Text>{profesor.attributes.descripcion}</Text>
+                      <Heading size={"sm"}>
+                        Contacto: {profesor.attributes.Email}
+                      </Heading>
+                      <Text mt={5}>{profesor.attributes.descripcion}</Text>
+                    </Box>
                   </TabPanel>
                 );
               })}
