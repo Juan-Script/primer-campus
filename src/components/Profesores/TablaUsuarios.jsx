@@ -1,62 +1,54 @@
-import React from 'react'
-import { Image, Card, CardHeader, CardBody, CardFooter, Stack, Heading, Text, Button } from '@chakra-ui/react'
+import React from "react";
+import {
+  Image,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Stack,
+  Heading,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 
-
-export default function TablaUsuarios({usuario}) {
-  
-  
+export default function TablaUsuarios({ usuario }) {
   return (
-    <div> 
+    <div>
+      <Card
+        margin={10}
+        direction={{ base: "column", sm: "row" }}
+        overflow="hidden"
+        variant="outline"
+        borderRadius={52}
+        borderWidth={3}
+      >
+        <Image
+          objectFit="fill"
+          maxW={{ base: "100%", sm: "200px" }}
+          src={usuario.attributes.avatar}
+          alt="Avatar"
+        />
 
+        <Stack>
+          <CardBody>
+            <Heading size="md">{usuario.attributes.Nombre}</Heading>
 
-          <Card
-            margin={10}
-            direction={{ base: 'column', sm: 'row' }}
-            overflow='hidden'
-            variant='outline'
-            borderRadius={52}
-            borderWidth={3}
-          >
-            <Image
-              objectFit='fill'
-              maxW={{ base: '100%', sm: '200px' }}
-              src={usuario.attributes.avatar}
-              alt='Avatar'
-            />
+            <Text py="2">{usuario.attributes.Email}</Text>
+          </CardBody>
 
-            <Stack>
-              <CardBody>
-                <Heading size='md'>{usuario.attributes.Nombre}</Heading>
-
-                <Text py='2'>
-                  {usuario.attributes.Email}
-                </Text>
-              </CardBody>
-
-              {/* <CardFooter>
+          {/* <CardFooter>
                 <Button variant='solid' colorScheme='blue'>
                   
                 </Button>
               </CardFooter> */}
-            </Stack>
-          </Card>
+        </Stack>
+      </Card>
     </div>
-    
-    
-
-    ) 
+  );
 }
 
-
-
-
-
-
-
-
-
-
-{/* // import {
+{
+  /* // import {
 //     Table,
 //     Thead,
 //     Tbody,
@@ -108,4 +100,5 @@ export default function TablaUsuarios({usuario}) {
 //   </Table>
 // </TableContainer>
 //   )
-// } */}
+// } */
+}

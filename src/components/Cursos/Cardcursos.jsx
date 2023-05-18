@@ -18,8 +18,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { getCursos } from "../shared/middlewares/getCursos";
+
 import { useNavigate } from "react-router-dom";
+import { getCursos } from "../../shared/middlewares/getCursos";
 
 const Cardcursos = () => {
   const [cursos, setCursos] = useState([]);

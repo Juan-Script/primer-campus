@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Sidebar } from "../components/Sidebar/Sidebar";
+import { HStack, Flex, Heading, Box } from "@chakra-ui/react";
+import Cardempleos from "../components/Empleos/Cardempleos";
 
 const Empleos = () => {
   const navigate = useNavigate();
@@ -18,7 +21,50 @@ const Empleos = () => {
     }
   }, []);
 
-  return <div>Empleos</div>;
+  return (
+    <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+      <Sidebar />
+      <Flex
+        as="main"
+        w="100%"
+        h="100%"
+        bg="white"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        position="relative"
+        borderRadius="3xl"
+      >
+        <Heading
+          size="lg"
+          justifyContent="space-between"
+          position="absolute"
+          left={30}
+          top={8}
+        >
+          Empleos
+        </Heading>
+        <Heading
+          size="md"
+          justifyContent="space-between"
+          position="absolute"
+          left={30}
+          top={28}
+        >
+          Vacantes
+        </Heading>
+        <Box
+          display="flex"
+          justifyContent="flex-start"
+          position="absolute"
+          left={30}
+          top={40}
+        >
+          <Cardempleos />
+        </Box>
+      </Flex>
+    </HStack>
+  );
 };
 
 export default Empleos;

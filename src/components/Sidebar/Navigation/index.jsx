@@ -35,7 +35,7 @@ const items = [
     type: "link",
     label: "Profesores",
     icon: MdPersonSearch,
-    path: "/usuarios",
+    path: "/profesores",
     color: "#1a202c",
   },
 ];

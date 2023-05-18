@@ -11,10 +11,11 @@ import { getToken } from "../shared/getToken";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login";
-import { Sidebar } from "../components/Sidebar";
-import { Cardcurso } from "../components/Cardcurso";
-import Cardcursos from "../components/Cardcursos";
-import Cardempleos from "../components/Cardempleos";
+import { Sidebar } from "../components/Sidebar/Sidebar";
+import { Cardcurso } from "../components/Cursos/Cardcurso";
+import Cardcursos from "../components/Cursos/Cardcursos";
+import Cardempleos from "../components/Empleos/Cardempleos";
+import { Formulario } from "../components/Forms/Formulario";
 
 export default function Inicio() {
   const navigate = useNavigate();
