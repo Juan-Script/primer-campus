@@ -1,149 +1,97 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import React from "react";
+import {
+  useDisclosure,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+
 import * as Yup from "yup";
 
-const initialValues = {
+const FormularioValues = {
   fullname: "",
+  lastname: "",
   username: "",
   email: "",
   password: "",
-  confirmPassword: "",
-  acceptTerms: false,
 };
 
-export const Formulario = () => {
+export function Formulario() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+
   return (
-    <div className="register-form">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={this.validationSchema}
-        onSubmit={this.handleSubmit}
+    <>
+      <Button
+        bg="#121625"
+        color="white"
+        size="sm"
+        _hover={{ bg: "grey" }}
+        _active={{ bg: "lightgrey" }}
+        onClick={onOpen}
       >
-        {({ errors, touched, resetForm }) => (
-          <Form>
-            <div className="form-group">
-              <label>Full Name</label>
-              <Field
-                name="fullname"
-                type="text"
-                className={
-                  "form-control" +
-                  (errors.fullname && touched.fullname ? " is-invalid" : "")
-                }
-              />
-              <ErrorMessage
-                name="fullname"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+        Registrarse
+      </Button>
 
-            <div className="form-group">
-              <label htmlFor="username"> Username </label>
-              <Field
-                name="username"
-                type="text"
-                className={
-                  "form-control" +
-                  (errors.username && touched.username ? " is-invalid" : "")
-                }
-              />
-              <ErrorMessage
-                name="username"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+      <Formik>
+        <Modal
+          initialFocusRef={initialRef}
+          finalFocusRef={finalRef}
+          isOpen={isOpen}
+          onClose={onClose}
+        >
+          <ModalOverlay />
 
-            <div className="form-group">
-              <label htmlFor="email"> Email </label>
-              <Field
-                name="email"
-                type="email"
-                className={
-                  "form-control" +
-                  (errors.email && touched.email ? " is-invalid" : "")
-                }
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+          <ModalContent>
+            <ModalHeader>Crea tu cuenta</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <FormControl>
+                <FormLabel>Nombre</FormLabel>
+                <Input ref={initialRef} placeholder="Nombre" />
+              </FormControl>
 
-            <div className="form-group">
-              <label htmlFor="password"> Password </label>
-              <Field
-                name="password"
-                type="password"
-                className={
-                  "form-control" +
-                  (errors.password && touched.password ? " is-invalid" : "")
-                }
-              />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+              <FormControl mt={4}>
+                <FormLabel>Apellido</FormLabel>
+                <Input placeholder="Apellido" />
+              </FormControl>
 
-            <div className="form-group">
-              <label htmlFor="confirmPassword"> Confirm Password </label>
-              <Field
-                name="confirmPassword"
-                type="password"
-                className={
-                  "form-control" +
-                  (errors.confirmPassword && touched.confirmPassword
-                    ? " is-invalid"
-                    : "")
-                }
-              />
-              <ErrorMessage
-                name="confirmPassword"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+              <FormControl mt={4}>
+                <FormLabel>Nombre de usuario</FormLabel>
+                <Input placeholder="Nombre de usuario" />
+              </FormControl>
 
-            <div className="form-group form-check">
-              <Field
-                name="acceptTerms"
-                type="checkbox"
-                className={
-                  "form-check-input" +
-                  (errors.acceptTerms && touched.acceptTerms
-                    ? " is-invalid"
-                    : "")
-                }
-              />
-              <label htmlFor="acceptTerms" className="form-check-label">
-                I have read and agree to the Terms
-              </label>
-              <ErrorMessage
-                name="acceptTerms"
-                component="div"
-                className="invalid-feedback"
-              />
-            </div>
+              <FormControl mt={4}>
+                <FormLabel type="email">Email</FormLabel>
+                <Input placeholder="Email" />
+              </FormControl>
 
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary">
-                Register
-              </button>
-              <button
-                type="button"
-                onClick={resetForm}
-                className="btn btn-warning float-right"
-              >
-                Reset
-              </button>
-            </div>
-          </Form>
-        )}
+              <FormControl mt={4}>
+                <FormLabel type="password">Contraseña</FormLabel>
+                <Input placeholder="Contraseña" />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button bg="#32d4a4" color="white" mr={3}>
+                Continuar
+              </Button>
+              <Button onClick={onClose}>Cancelar</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Formik>
-    </div>
+    </>
   );
-};
+}

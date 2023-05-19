@@ -79,10 +79,11 @@ export default function Profesores() {
                   <TabPanel>
                     <Box ml={5} mr={5}>
                       <Heading mt={10} size={"md"}>
-                        {profesor.attributes.Nombre}
+                        {profesor.attributes.Nombre} -{" "}
+                        {profesor.attributes.especialidad}
                       </Heading>
 
-                      <Heading size={"sm"}>
+                      <Heading mt={5} size={"sm"}>
                         Contacto: {profesor.attributes.Email}
                       </Heading>
                       <Text mt={5}>{profesor.attributes.descripcion}</Text>

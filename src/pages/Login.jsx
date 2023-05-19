@@ -19,13 +19,21 @@ import {
   CardBody,
   Checkbox,
   position,
+  useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Formulario } from "../components/Forms/Formulario";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [apiData, setApiData] = useState({});
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const abrirModal = () => {
+    onOpen();
+  };
 
   const toast = useToast();
   const showToast = () => {
@@ -116,15 +124,7 @@ export default function Login() {
             Iniciar sesión
           </Button>{" "}
           {/* <Link to='/inicio'>Iniciar sesión</Link> */}
-          <Button
-            bg="#121625"
-            color="white"
-            size="sm"
-            _hover={{ bg: "grey" }}
-            _active={{ bg: "lightgrey" }}
-          >
-            Registrarse
-          </Button>
+          <Formulario onOpen={onOpen} onClose={onClose} />
         </Stack>
       </Flex>
       <Flex w="full" h="full" borderRightWidth={1}>
