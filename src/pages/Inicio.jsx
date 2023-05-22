@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { getToken } from "../shared/getToken";
-import { useEffect } from "react";
+import { useEffect, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import showToast from "./Login";
 import { Sidebar } from "../components/Sidebar/Sidebar";
@@ -16,14 +16,16 @@ import { Cardcurso } from "../components/Cursos/Cardcurso";
 import Cardcursos from "../components/Cursos/Cardcursos";
 import Cardempleos from "../components/Empleos/Cardempleos";
 import { Formulario } from "../components/Forms/Formulario";
+import { UserContext } from "../components/UserContext";
 
 export default function Inicio() {
   const navigate = useNavigate();
+  const user = useContext(UserContext);
   const { colorMode, toggleColorMode } = useColorMode();
+  // const { user } = useContext(UserContext);
 
   useEffect(() => {
     let token = getToken();
-
     if (!token) {
       alert(showToast());
       navigate("/");
@@ -67,7 +69,7 @@ export default function Inicio() {
           left={30}
           top={120}
         >
-          ¡Comienza a aprender con nosotros!
+          Bienvenido, {user?.email} ¡Comienza a aprender con nosotros!
         </Heading>
 
         <Box
@@ -116,6 +118,14 @@ export default function Inicio() {
           left={30}
         >
           <Cardempleos></Cardempleos>
+
+          <div>
+            <h2>Home</h2>
+            {/* <div>{value}</div>
+            <button onClick={() => setValue("hey")}>login</button>
+            {console.log(value)}
+            <pre>{JSON.stringify(value, null, 2)}</pre> */}
+          </div>
           {/* <Button onClick={toggleColorMode}>
             Toggle {colorMode === "light" ? "Dark" : "Light"}
           </Button> */}

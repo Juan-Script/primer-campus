@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Input,
@@ -24,7 +24,7 @@ import {
 import axios from "axios";
 import { Formulario } from "../components/Forms/Formulario";
 
-export default function Login() {
+export default function Login({ userData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [apiData, setApiData] = useState({});
@@ -59,7 +59,7 @@ export default function Login() {
     });
   };
 
-  const login = () => {
+  const login = async () => {
     axios
       .post("https://reqres.in/api/login", {
         email: email,
@@ -67,6 +67,10 @@ export default function Login() {
       })
       .then(function (response) {
         if (response.data.token) {
+          userData({
+            email: email,
+            password: password,
+          });
           showToastlogin();
           setTimeout(() => {
             localStorage.setItem("Token", "QpwL5tke4Pnpja7X4");
@@ -114,7 +118,10 @@ export default function Login() {
           </FormControl>
           <Button
             type="submit"
-            onClick={() => login()}
+            // onClick={() => login()}
+            onClick={async () => {
+              const user = await login();
+            }}
             bg="#32d4a4"
             color="white"
             size="sm"

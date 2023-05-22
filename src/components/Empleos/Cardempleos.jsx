@@ -34,7 +34,7 @@ const Cardempleos = () => {
   useEffect(() => {
     getEmpleos().then((response) => {
       setEmpleos(response);
-      console.log(response);
+      // console.log(response);
     });
   }, []);
 

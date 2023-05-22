@@ -55,7 +55,7 @@ export default function Profesores() {
           position="relative"
           borderRadius="3xl"
         >
-          <Tabs ml={0} mt={-1100}>
+          <Tabs variant="soft-rounded" ml={0} mt={-1100}>
             <TabList>
               {profesores.map((profesor) => {
                 return (
@@ -63,12 +63,13 @@ export default function Profesores() {
                     ml={10}
                     mr={20}
                     mb
-                    bgImage={profesor.attributes.avatar}
                     backgroundSize="cover"
                     backgroundPosition="center"
                     width="60px"
                     height="60px"
-                  ></Tab>
+                  >
+                    {profesor.attributes.Nombre}
+                  </Tab>
                 );
               })}
             </TabList>
@@ -77,7 +78,7 @@ export default function Profesores() {
               {profesores.map((profesor) => {
                 return (
                   <TabPanel>
-                    <Box ml={5} mr={5}>
+                    <Box ml={5} mr={20}>
                       <Heading mt={10} size={"md"}>
                         {profesor.attributes.Nombre} -{" "}
                         {profesor.attributes.especialidad}
