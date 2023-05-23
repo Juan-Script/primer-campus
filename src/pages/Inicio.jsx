@@ -118,17 +118,6 @@ export default function Inicio() {
           left={30}
         >
           <Cardempleos></Cardempleos>
-
-          <div>
-            <h2>Home</h2>
-            {/* <div>{value}</div>
-            <button onClick={() => setValue("hey")}>login</button>
-            {console.log(value)}
-            <pre>{JSON.stringify(value, null, 2)}</pre> */}
-          </div>
-          {/* <Button onClick={toggleColorMode}>
-            Toggle {colorMode === "light" ? "Dark" : "Light"}
-          </Button> */}
         </HStack>
       </Flex>
     </HStack>

@@ -15,6 +15,8 @@ import {
   Text,
   Image,
   Divider,
+  GridItem,
+  Grid,
 } from "@chakra-ui/react";
 import TablaUsuarios from "../components/Profesores/TablaUsuarios";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +63,8 @@ export default function Profesores() {
                 return (
                   <Tab
                     ml={10}
-                    mr={20}
+                    mr={10}
+                    mt={50}
                     mb
                     backgroundSize="cover"
                     backgroundPosition="center"
@@ -78,17 +81,32 @@ export default function Profesores() {
               {profesores.map((profesor) => {
                 return (
                   <TabPanel>
-                    <Box ml={5} mr={20}>
-                      <Heading mt={10} size={"md"}>
-                        {profesor.attributes.Nombre} -{" "}
-                        {profesor.attributes.especialidad}
-                      </Heading>
+                    <HStack>
+                      <VStack>
+                        <Box ml={5} mr={20}>
+                          <Heading mt={10} size={"md"}>
+                            {profesor.attributes.Nombre} -{" "}
+                            {profesor.attributes.especialidad}
+                          </Heading>
 
-                      <Heading mt={5} size={"sm"}>
-                        Contacto: {profesor.attributes.Email}
-                      </Heading>
-                      <Text mt={5}>{profesor.attributes.descripcion}</Text>
-                    </Box>
+                          <Heading mt={5} size={"sm"}>
+                            Contacto: {profesor.attributes.Email}
+                          </Heading>
+                          <Text mr="500px" mt={10}>
+                            {profesor.attributes.descripcion}
+                          </Text>
+                        </Box>
+                      </VStack>
+                      <Image
+                        position="absolute"
+                        left={800}
+                        top={170}
+                        maxH={400}
+                        maxW={400}
+                        borderRadius={10}
+                        src={profesor.attributes.imagen}
+                      ></Image>
+                    </HStack>
                   </TabPanel>
                 );
               })}
