@@ -1,21 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Image,
-  Stack,
-  Heading,
-  Divider,
-  Text,
-  Badge,
-  HStack,
-  VStack,
-  useDisclosure,
-  Button,
-} from "@chakra-ui/react";
+import { VStack, useDisclosure, Button } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { getEmpleos } from "../../shared/middlewares/getEmpleos";
+
 import { useNavigate } from "react-router-dom";
 import { getCursos } from "../../shared/middlewares/getCursos";
 
@@ -31,16 +17,18 @@ export const Rutasforo = () => {
       console.log(response);
     });
   }, []);
+  // SACAR CURSOS EN FOROS Y TRAER POR PROPS COMO DATA Y EL MAP HACERLO A DATA
+  // HACER EN FOROS UN STADO DE ID SETID Y ACA PASARLE EL SET ID HACER UN ONCLICK EN EL MAP Y SETEAR EL CURSO.ID
 
-  // Función para manejar la apertura del modal y establecer el curso seleccionado
-  const handleOpenModal = (curso) => {
-    setSelectedCurso(curso);
-    onOpen();
-  };
+  //   Función para manejar la apertura del modal y establecer el curso seleccionado
+  //   const handleOpenModal = (curso) => {
+  //     setSelectedCurso(curso);
+  //     onOpen();
+  //   };
 
-  const goToDetalle = (selectedCurso) => {
-    navigate("/empleodetalles", { state: selectedCurso });
-  };
+  //   const goToDetalle = (selectedCurso) => {
+  //     navigate("/empleodetalles", { state: selectedCurso });
+  //   };
 
   return (
     <VStack>

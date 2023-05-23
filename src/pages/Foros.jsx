@@ -96,50 +96,9 @@ export default function Foros() {
                 </VStack>
               </AccordionTab>
             </Accordion>
-            <VStack>
-              <Card
-                direction="column"
-                position="absolute"
-                top={0}
-                left={350}
-                overflow="hidden"
-                variant="outline"
-                maxW={1300}
-                minW={860}
-              >
-                <Image
-                  objectFit="cover"
-                  maxW={{ base: "100%" }}
-                  maxH={100}
-                  src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Caffe Latte"
-                />
 
-                <Stack>
-                  <CardBody>
-                    <Heading size="md">Introducción a la programación</Heading>
-                  </CardBody>
-
-                  <CardFooter>
-                    <InputGroup>
-                      <InputLeftElement pointerEvents="none">
-                        <Icon as={MdSearch} />
-                      </InputLeftElement>
-                      <Input placeholder="Buscar temas" />
-                    </InputGroup>
-                  </CardFooter>
-                </Stack>
-              </Card>
-              <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-                <GridItem w="100%" h="10" bg="blue.500">
-                  <Cardpost></Cardpost>
-                </GridItem>
-                <GridItem w="100%" h="10" bg="blue.500" />
-                <GridItem w="100%" h="10" bg="blue.500" />
-                <GridItem w="100%" h="10" bg="blue.500" />
-                <GridItem w="100%" h="10" bg="blue.500" />
-              </Grid>
-            </VStack>
+            {/* LE PASAS LOS CURSOS COMO DATA Y LE PASAS EL ID Y DENTRO HACES UN DATA.FIND Y FILTRAS POR ID Y AHI PODES MOSTRAR ESOS DATOS */}
+            <Cardforo></Cardforo>
           </Box>
         </Flex>
       </HStack>

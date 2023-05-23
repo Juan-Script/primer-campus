@@ -3,22 +3,19 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Image,
   Heading,
   Text,
   Stack,
-  Button,
 } from "@chakra-ui/react";
-
-import { getCursos } from "../../shared/middlewares/getCursos";
+import { getForos } from "../../shared/middlewares/getForos";
 
 export const Cardpost = () => {
-  const [cursos, setCursos] = useState([]);
+  const [foros, setForos] = useState([]);
   const [selectedCurso, setSelectedCurso] = useState(null); // Estado para almacenar el curso seleccionado
 
   useEffect(() => {
-    getCursos().then((response) => {
-      setCursos(response);
+    getForos().then((response) => {
+      setForos(response);
       // console.log(response);
     });
   }, []);
@@ -44,17 +41,17 @@ export const Cardpost = () => {
 
       <Stack>
         <CardBody>
-          {Array.isArray(cursos)
-            ? cursos.map((curso) => {
+          {Array.isArray(foros)
+            ? foros.map((foro) => {
                 return (
                   <Heading mt={-20} size="md" color="white">
-                    {curso.attributes.titulo}
+                    {foro.attributes.titulo}
                   </Heading>
                 );
               })
             : null}
 
-          <Text mt={14} py="2" color="black">
+          <Text mt={14} py="2" color="white">
             Errores del curso
           </Text>
         </CardBody>

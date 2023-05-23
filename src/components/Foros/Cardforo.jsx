@@ -5,9 +5,7 @@ import {
   CardFooter,
   Image,
   Heading,
-  Text,
   Stack,
-  Button,
   VStack,
   InputLeftElement,
   InputGroup,
@@ -21,7 +19,7 @@ import { MdSearch } from "react-icons/md";
 import { getCursos } from "../../shared/middlewares/getCursos";
 
 export const Cardforo = () => {
-  const [curso, setCursos] = useState([]);
+  const [cursos, setCursos] = useState([]);
   const [selectedCurso, setSelectedCurso] = useState(null); // Estado para almacenar el curso seleccionado
 
   useEffect(() => {
@@ -52,7 +50,9 @@ export const Cardforo = () => {
 
         <Stack>
           <CardBody>
-            <Heading size="md">{curso.attributes.titulo}</Heading>
+            <Heading size="md">
+              {/* {cursos?.attributes?.titulo} */}JavaScript
+            </Heading>
           </CardBody>
 
           <CardFooter>
