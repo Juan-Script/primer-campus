@@ -4,13 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ColorModeScript } from "@chakra-ui/react";
-//theme
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-
 import theme from "./theme";
-
-//core
+import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+//core
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -4,6 +4,7 @@ import {
   MdRocketLaunch,
   Md3P,
   MdPersonSearch,
+  MdToc,
 } from "react-icons/md";
 import { NavItem } from "./Navitem";
 
@@ -36,6 +37,13 @@ const items = [
     label: "Profesores",
     icon: MdPersonSearch,
     path: "/profesores",
+    color: "#1a202c",
+  },
+  {
+    type: "link",
+    label: "Foros",
+    icon: MdToc,
+    path: "/foros",
     color: "#1a202c",
   },
 ];

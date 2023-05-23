@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Cursos from "./pages/Cursos";
 import Inicio from "./pages/Inicio";
 import Empleos from "./pages/Empleos";
+import Foros from "./pages/Foros";
 import { ChakraProvider } from "@chakra-ui/react";
 import Cursodetalles from "./components/Cursos/Cursodetalles";
 import Empleodetalles from "./components/Empleos/Empleodetalles";
@@ -45,6 +46,8 @@ function App() {
               <Route path="/inicio" element={<Inicio />}></Route>
               <Route path="/empleos" element={<Empleos />}></Route>
               <Route path="/cursodetalles" element={<Cursodetalles />}></Route>
+              <Route path="/foros" element={<Foros />}></Route>
+              {/* <Route path="/foros:id" element={<ForoDetail />}></Route> */}
               <Route
                 path="/empleodetalles"
                 element={<Empleodetalles />}

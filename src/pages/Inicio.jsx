@@ -69,7 +69,17 @@ export default function Inicio() {
           left={30}
           top={120}
         >
-          Bienvenido, {user?.email} ¡Comienza a aprender con nosotros!
+          Bienvenido,{" "}
+          <span
+            style={{
+              background: "linear-gradient(to right, #1dee8a, #3544e8)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            {user?.email}
+          </span>{" "}
+          ¡Comienza a aprender con nosotros!
         </Heading>
 
         <Box
