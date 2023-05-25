@@ -34,19 +34,23 @@ export const Rutasforo = (/* { cursos, setCursoId } */) => {
     <VStack>
       {Array.isArray(cursos)
         ? cursos.map((curso) => {
-            return <Button w="100%">{curso.attributes.titulo}</Button>;
+            return (
+              <Button key={curso.id} w="100%">
+                {curso.attributes.titulo}
+              </Button>
+            );
           })
         : null}
     </VStack>
   );
 };
 
-{
-  /* <ul>
-  {cursos.map((curso) => (
-    <li key={curso.id} onClick={() => setCursoId(curso.id)}>
-      {curso.nombre}
-    </li>
-  ))}
-</ul>; */
-}
+// {
+//   <ul>
+//   {cursos.map((curso) => (
+//     <li key={curso.id} onClick={() => setCursoId(curso.id)}>
+//       {curso.titulo}
+//     </li>
+//   ))}
+// </ul>;
+// }
