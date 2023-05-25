@@ -7,7 +7,7 @@ import { Pruebaforos } from "../components/Foros/Pruebaforos";
 
 export default function Foros() {
   const [cursoId, setCursoId] = useState(null);
-
+  const [selectedCurso, setSelectedCurso] = useState(null);
   const [selectedCard, setSelectedCard] = useState("");
 
   //   const { id } = useParams();

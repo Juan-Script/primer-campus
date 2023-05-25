@@ -33,9 +33,12 @@ export function Pruebaforos(props) {
   useEffect(() => {
     const fetchCursos = async () => {
       try {
-        const response = await getCursos();
-        setCursos(response.data);
-        console.log(response);
+        await getCursos()
+          .then((response) => {
+            const data = response;
+            return data;
+          })
+          .then((data) => setCursos(data));
       } catch (error) {
         console.log(error);
       }
@@ -44,20 +47,24 @@ export function Pruebaforos(props) {
     fetchCursos();
   }, []);
 
+  console.log(cursos);
+
   return (
     <Flex>
       <VStack>
-        {Array.isArray(cursos)
-          ? cursos?.map((curso) => (
-              <Button
-                key={curso.id}
-                w="100%"
-                onClick={() => handleButtonClick(curso.id)}
-              >
-                {curso?.attributes?.titulo}
-              </Button>
-            ))
-          : null}
+        {Array.isArray(cursos) && cursos.length > 0 ? (
+          cursos?.map((curso) => (
+            <Button
+              key={curso.id}
+              w="100%"
+              onClick={() => handleButtonClick(curso.id)}
+            >
+              {curso?.attributes?.titulo}
+            </Button>
+          ))
+        ) : (
+          <Text>No se encontraron cursos</Text>
+        )}
       </VStack>
 
       {selectedCurso && <Carta curso={selectedCurso} />}
