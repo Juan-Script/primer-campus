@@ -5,10 +5,10 @@ import { Rutasforo } from "./Rutasforo";
 
 export const Acordeon = () => {
   return (
-    <Flex h="100%">
+    <Box h="100%" w="300px">
       <Accordion activeIndex={0}>
         <AccordionTab header="Tus cursos">
-          <Flex alignItems="initial" textAlign="left">
+          <Flex flexDirection="column" textAlign="left">
             <Rutasforo></Rutasforo>
           </Flex>
           {/* <Box ml={4} mt={4}>
@@ -23,6 +23,6 @@ export const Acordeon = () => {
           </Flex>
         </AccordionTab>
       </Accordion>
-    </Flex>
+    </Box>
   );
 };

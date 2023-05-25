@@ -34,7 +34,7 @@ export const Rutasforo = (/* { cursos, setCursoId } */) => {
     <VStack>
       {Array.isArray(cursos)
         ? cursos.map((curso) => {
-            return <Button w="full">{curso.attributes.titulo}</Button>;
+            return <Button w="100%">{curso.attributes.titulo}</Button>;
           })
         : null}
     </VStack>

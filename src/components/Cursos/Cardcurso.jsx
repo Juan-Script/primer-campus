@@ -29,9 +29,7 @@ export const Cardcurso = () => {
 
       <Stack>
         <CardBody>
-          <Heading size="xs" fontWeight={10}>
-            CONCEPTOS DE LA PROGRAMACIÓN
-          </Heading>
+          <Heading size="xs">CONCEPTOS DE LA PROGRAMACIÓN</Heading>
 
           <Text py="2">Introducción al ecosistema de la programación</Text>
         </CardBody>

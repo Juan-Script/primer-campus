@@ -31,50 +31,40 @@ const Empleodetalles = () => {
   }, []);
 
   return (
-    <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+    <Flex h="100vh">
       <Sidebar />
       <Flex
         as="main"
         w="100%"
-        h="100%"
+        h="100vp"
         bg="white"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-        position="relative"
         borderRadius="3xl"
+        overflow="hidden"
+        flexDirection="column"
+        gap={4}
       >
-        <VStack
+        <Flex
           alignItems="flex-start"
           flexDirection="column"
           justifyContent="space-between"
           spacing="18px"
           margin="30px"
+          borderWidth={2}
+          borderRadius={10}
+          p={5}
+          w="25%"
         >
-          <Heading
-            size="md"
-            justifyContent="space-between"
-            position="absolute"
-            left={30}
-            top={8}
-          >
+          <Heading size="md" justifyContent="space-between">
             {state?.attributes?.titulo}
           </Heading>
           <Image
             justifyContent="space-between"
-            position="absolute"
-            left={30}
-            top={20}
             borderRadius={10}
             src={state?.attributes?.precio}
           ></Image>
           <Box
             display="flex"
             justifyContent="flex-start"
-            position="absolute"
-            top="60"
-            mt="200"
-            left={30}
             flexDirection="column"
             paddingRight="40"
           >
@@ -86,9 +76,9 @@ const Empleodetalles = () => {
             <Text>Lugar: {state?.attributes?.lugar}</Text>
             <Text>Modalidad: {state?.attributes?.modalidad}</Text>
           </Box>
-        </VStack>
+        </Flex>
       </Flex>
-    </HStack>
+    </Flex>
   );
 };
 
