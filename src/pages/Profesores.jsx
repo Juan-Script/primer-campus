@@ -44,7 +44,7 @@ export default function Profesores() {
 
   return (
     <>
-      <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+      <Flex h="100vh">
         <Sidebar />
         <Flex
           as="main"
@@ -56,6 +56,7 @@ export default function Profesores() {
           flexDirection="column"
           position="relative"
           borderRadius="3xl"
+          overflow="hidden"
         >
           <Tabs variant="soft-rounded" ml={0} mt={-1100}>
             <TabList>
@@ -92,7 +93,7 @@ export default function Profesores() {
                           <Heading mt={5} size={"sm"}>
                             Contacto: {profesor.attributes.Email}
                           </Heading>
-                          <Text mr="500px" mt={10}>
+                          <Text mr="500px" mt={10} maxW={700} minW={700}>
                             {profesor.attributes.descripcion}
                           </Text>
                         </Box>
@@ -121,7 +122,7 @@ export default function Profesores() {
               ))}
           </> */}
         </Flex>
-      </HStack>
+      </Flex>
     </>
   );
 }

@@ -42,12 +42,11 @@ export const Profile = ({ collapse }) => {
   };
   return (
     <Flex
-      mt="1090"
+      mt="50px"
       borderWidth={collapse ? 1 : 0}
       borderColor="gray.100"
       borderRadius="full"
       w="full"
-      p={2}
       alignItems="center"
       justifyContent="space-between"
       gap={2}

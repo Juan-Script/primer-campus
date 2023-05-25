@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCursos } from "../../shared/middlewares/getCursos";
 
-export const Rutasforo = () => {
+export const Rutasforo = (/* { cursos, setCursoId } */) => {
   const [cursos, setCursos] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedCurso, setSelectedCurso] = useState(null); // Estado para almacenar el curso seleccionado
@@ -40,3 +40,13 @@ export const Rutasforo = () => {
     </VStack>
   );
 };
+
+{
+  /* <ul>
+  {cursos.map((curso) => (
+    <li key={curso.id} onClick={() => setCursoId(curso.id)}>
+      {curso.nombre}
+    </li>
+  ))}
+</ul>; */
+}

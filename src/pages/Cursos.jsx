@@ -27,7 +27,7 @@ export default function Cursos() {
   };
 
   return (
-    <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+    <Flex h="100vh">
       <Sidebar />
       <Flex
         as="main"
@@ -39,6 +39,7 @@ export default function Cursos() {
         flexDirection="column"
         position="relative"
         borderRadius="3xl"
+        overflow="hidden"
       >
         <Heading
           size="lg"
@@ -77,6 +78,6 @@ export default function Cursos() {
           Cursos
         </Heading>
       </Flex>
-    </HStack>
+    </Flex>
   );
 }

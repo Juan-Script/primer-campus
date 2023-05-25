@@ -40,7 +40,7 @@ export default function Inicio() {
   return (
     //
 
-    <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+    <Flex h="100vh">
       <Sidebar />
       <Flex
         as="main"
@@ -52,6 +52,7 @@ export default function Inicio() {
         flexDirection="column"
         position="relative"
         borderRadius="3xl"
+        overflow="hidden"
       >
         <Heading
           size="md"
@@ -130,6 +131,6 @@ export default function Inicio() {
           <Cardempleos></Cardempleos>
         </HStack>
       </Flex>
-    </HStack>
+    </Flex>
   );
 }

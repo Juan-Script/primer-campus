@@ -22,7 +22,7 @@ const Empleos = () => {
   }, []);
 
   return (
-    <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+    <Flex h="100vh">
       <Sidebar />
       <Flex
         as="main"
@@ -34,6 +34,7 @@ const Empleos = () => {
         flexDirection="column"
         position="relative"
         borderRadius="3xl"
+        overflow="hidden"
       >
         <Heading
           size="lg"
@@ -63,7 +64,7 @@ const Empleos = () => {
           <Cardempleos />
         </Box>
       </Flex>
-    </HStack>
+    </Flex>
   );
 };
 

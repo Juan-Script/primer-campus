@@ -1,107 +1,59 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  Flex,
-  Grid,
-  GridItem,
-  HStack,
-  Heading,
-  Icon,
-  Image,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Stack,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
 import { React, useState } from "react";
 import { Sidebar } from "../components/Sidebar/Sidebar";
-import { Accordion, AccordionTab } from "primereact/accordion";
 
-import { MdSearch } from "react-icons/md";
-import { Cardpost } from "../components/Foros/Cardpost";
-import { useParams } from "react-router-dom";
-import { Rutasforo } from "../components/Foros/Rutasforo";
-import { Cardforo } from "../components/Foros/Cardforo";
+import { Boxforo } from "../components/Foros/Boxforo";
+import { Acordeon } from "../components/Foros/Acordeon";
 
 export default function Foros() {
+  const [cursoId, setCursoId] = useState(null);
+
   const [selectedCard, setSelectedCard] = useState("");
   //   const { id } = useParams();
 
   //   const foro = foros.find(foro => foro.id === id)
 
-  const handleButtonClick = (card) => {
-    setSelectedCard(card);
-  };
+  // const handleButtonClick = (card) => {
+  //   setSelectedCard(card);
+  // };
 
   return (
     <>
-      <HStack w="full" h="100vw" bg="gray.100" padding={10}>
+      <Flex h="100vh">
         <Sidebar />
         <Flex
           as="main"
           w="100%"
-          h="100%"
+          h="100vp"
           bg="white"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          position="relative"
           borderRadius="3xl"
+          overflow="hidden"
+          flexDirection="column"
+          gap={4}
         >
-          <Heading
-            size="lg"
-            justifyContent="space-between"
-            position="absolute"
-            left={30}
-            top={8}
-          >
+          <Heading m={5} size="lg">
             Foros
           </Heading>
 
-          <Box
-            margin={30}
-            maxH={20}
-            maxW={300}
-            minW={300}
-            position="absolute"
-            top={20}
-            left={0}
-          >
-            <Accordion activeIndex={0}>
-              <AccordionTab header="Tus cursos">
-                <VStack alignItems="initial" textAlign="left">
-                  <Rutasforo></Rutasforo>
-                </VStack>
-                <Box ml={4} mt={4}>
-                  {selectedCard && <Cardforo cardTitle={selectedCard} />}
-                </Box>
-              </AccordionTab>
-              <AccordionTab header="Otros cursos">
-                <VStack alignItems="-moz-initial">
-                  <Button>ReactJS</Button>
-                  <Button>ReactJS Avanzado</Button>
-                  <Button>Python</Button>
-                  <Button>Docker</Button>
-                  <Button>PHP</Button>
-                  <Button>Git</Button>
-                  <Button>Hibernate</Button>
-                  <Button>C#</Button>
-                  <Button>FC Fullstack</Button>
-                  <Button>FC Frontend</Button>
-                  <Button>TypeScript</Button>
-                </VStack>
-              </AccordionTab>
-            </Accordion>
-
+          <Flex m={5} gap={4} maxH="100%" maxW="100%">
+            <Box>
+              <Acordeon />
+            </Box>
+            <Flex>
+              <Boxforo />
+            </Flex>
             {/* LE PASAS LOS CURSOS COMO DATA Y LE PASAS EL ID Y DENTRO HACES UN DATA.FIND Y FILTRAS POR ID Y AHI PODES MOSTRAR ESOS DATOS */}
-            <Cardforo></Cardforo>
-          </Box>
+          </Flex>
         </Flex>
-      </HStack>
+      </Flex>
     </>
   );
+}
+
+{
+  /* <div>
+      <h2>Cursos</h2>
+      <CursoList cursos={cursos} setCursoId={setCursoId} />
+      <p>ID del curso seleccionado: {cursoId}</p>
+    </div> */
 }

@@ -11,14 +11,15 @@ export const Sidebar = () => {
     <Flex
       as="aside"
       w="full"
-      h="full"
+      h="100vp"
       maxW={collapses ? 350 : 100}
-      bg="white"
+      bg="gray.100"
       alignItems="center"
       padding={6}
       flexDirection="column"
       justifyContent="space-between"
-      borderRadius="3xl"
+      borderTopRightRadius="3xl"
+      borderBottomRightRadius="3xl"
       transition="ease 0.5s "
       onMouseEnter={() => setCollapse(!collapses)}
       onMouseLeave={() => setCollapse(!collapses)}
