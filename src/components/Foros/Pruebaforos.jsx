@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Button, Box, Text, VStack, Flex } from "@chakra-ui/react";
-import axios from "axios";
+import { Button, Text, Flex } from "@chakra-ui/react";
 import { getCursos } from "../../shared/middlewares/getCursos";
 
 const Carta = ({ curso }) => {
   return (
-    <Box borderWidth="1px" borderRadius="md" p={4} mb={4}>
-      <Text fontWeight="bold">{curso.attributes.titulo}</Text>
-      <Text>{curso.attributes.descripcion}</Text>
-    </Box>
+    <Flex>
+      <Text>{curso?.attributes?.titulo}</Text>
+      <Text>{curso?.attributes?.categoria}</Text>
+    </Flex>
   );
 };
 
-export function Pruebaforos(props) {
-  const data = props.data;
-  const [selectedCurso, setSelectedCurso] = useState(null);
+export function Pruebaforos() {
+  // const data = props.data;
+  const [selectedCurso, setSelectedCurso] = useState("");
   const [cursos, setCursos] = useState([]);
 
   const fetchData = async (id) => {
     try {
       const response = await getCursos(id);
-      setSelectedCurso(response.data);
+      setSelectedCurso(response);
+      // console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
+  console.log(selectedCurso);
 
   const handleButtonClick = async (id) => {
     await fetchData(id);
@@ -47,14 +48,15 @@ export function Pruebaforos(props) {
     fetchCursos();
   }, []);
 
-  console.log(cursos);
+  // console.log(fetchData);
 
   return (
     <Flex>
-      <VStack>
+      <Flex flexDirection="column" display="inline-block">
         {Array.isArray(cursos) && cursos.length > 0 ? (
           cursos?.map((curso) => (
             <Button
+              mb="3"
               key={curso.id}
               w="100%"
               onClick={() => handleButtonClick(curso.id)}
@@ -65,8 +67,7 @@ export function Pruebaforos(props) {
         ) : (
           <Text>No se encontraron cursos</Text>
         )}
-      </VStack>
-
+      </Flex>
       {selectedCurso && <Carta curso={selectedCurso} />}
     </Flex>
   );

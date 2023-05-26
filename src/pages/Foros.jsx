@@ -37,15 +37,12 @@ export default function Foros() {
           </Heading>
 
           <Flex m={5} gap={4} maxH="100%" maxW="100%">
-            {/* <Box>
+            <Box>
               <Acordeon />
             </Box>
-            <Flex>
+            {/* <Flex>
               <Boxforo />
             </Flex> */}
-            <Flex>
-              <Pruebaforos data={selectedCurso} />
-            </Flex>
           </Flex>
         </Flex>
       </Flex>
